@@ -5,21 +5,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jeż nocą</title>
+    <title>Noc</title>
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
     <style>
         body {
-            background-color: lightslategray;
+            background-color: #777;
             animation: sky 15s infinite linear;
         }
 
 
         .moon {
             position: fixed;
-            bottom: 10%;
-            left: 10%;
-            width: 20vh;
-            height: 20vh;
+            bottom: 20%;
+            left: 0%;
+            transform: translate(50%, -50%);
+            width: 15vh;
+            height: 15vh;
             background-color: transparent;
             border-radius: 50%;
             box-shadow: -20px 12px 0px 0px yellow;
@@ -32,10 +33,28 @@
             left: 0;
             right: 0;
             bottom: 0;
+            min-width: 50vh;
             height: 70vh;
             background-image: url(forest.png);
+            background-repeat: repeat-x;
+            background-size: contain;
+            background-position: bottom;
+        }
+
+        .star {
+            position: fixed;
+            top: 10vw;
+            left: 10vh;
+            width: 5vh;
+            height: 5vh;
+            z-index: 2;
+            background-image: url(star.png);
+            background-size: contain;
             background-repeat: no-repeat;
-            background-size: cover;
+            opacity: 0;
+            /* transition: 1s linear ; */
+            animation: star 15s linear infinite;
+
         }
 
         .hedgehog {
@@ -47,92 +66,155 @@
             background-image: url(hedgehog.png);
             background-size: contain;
             background-repeat: no-repeat;
-            transform:scaleX(-1);
+            transform: scaleX(-1);
             z-index: 1;
             animation: hedgehog 15s ease-in infinite;
         }
 
+        .hedgehog:hover {
+            width: 12%;
+            height: 6vw;
+        }
+
+        @keyframes star {
+
+
+            40% {
+                opacity: 0;
+            }
+
+            40.5% {
+                opacity: 1;
+                transform: scale(-1) rotate(0);
+            }
+
+            41% {
+                opacity: 0;
+            }
+
+            41.5% {
+                opacity: 0.1;
+            }
+
+            42% {
+
+                opacity: 1;
+                transform: scale(1.2, 0.2) rotate(10deg);
+            }
+
+            42.5% {
+                opacity: 0;
+            }
+
+            43% {
+                opacity: 0.1;
+            }
+
+            43.5% {
+
+                opacity: 1;
+                transform: scale(0.2, 1.2) rotate(0);
+            }
+
+            44% {
+                opacity: 0;
+            }
+
+            44.5% {
+
+                opacity: 1;
+                transform: scale(1.2, 0.2) rotate(10deg);
+            }
+
+            45% {
+                opacity: 0;
+            }
+
+            45.5% {
+                opacity: 0.1;
+            }
+
+            46% {
+                opacity: 1;
+                transform: scale(0.2, 1.2) rotate(0);
+            }
+
+            46.5% {
+                opacity: 0;
+            }
+
+            47% {
+                opacity: 0;
+            }
+
+            47.5% {
+
+                opacity: 1;
+                transform: scale(-1) rotate(0);
+            }
+
+            48% {
+                opacity: 0;
+            }
+
+            48.5% {
+                opacity: 1;
+                transform: scale(1) rotate(0);
+            }
+
+            55% {
+                transform: scale(-1) rotate(0);
+                opacity: 0;
+            }
+
+        }
 
         @keyframes hedgehog {
             0% {
-
                 left: 100%;
             }
 
             100% {
-
                 left: -100%;
-
             }
         }
 
         @keyframes sky {
             0% {
-                background-color: lightslategray;
-            }
-
-            10% {
-                background-color: #7F7F7F;
-            }
-
-            20% {
-                background-color: #7A848E;
-            }
-
-            30% {
-                background-color: #222;
+                background-color: #ccc;
             }
 
             50% {
                 background-color: black;
-                background-image: url(star.png);
-                background-size: 30vh ;
-                background-repeat: no-repeat;
-                
-
-            }
-
-            70% {
-                background-color: #222;
-            }
-
-            80% {
-                background-color: #7A848E;
-
-            }
-
-            90% {
-                background-color: #7F7F7F;
-
             }
 
             100% {
-                background-color: lightslategray;
+                background-color: #ccc;
             }
         }
 
         @keyframes moon {
             0% {
-                bottom: 5%;
-                left: 5%;
-
+                bottom: 20%;
+                left: calc(0% - 20vh);
             }
 
-
+            48% {
+                bottom: 65%;
+            }
 
             50% {
-                bottom: 65%;
-
+                box-shadow: -20px 12px 0px 5px rgb(50, 255, 21);
             }
 
-
+            52% {
+                bottom: 65%;
+            }
 
             100% {
-                bottom: 5%;
-                left: 95%;
-
+                bottom: 20%;
+                left: 105%;
             }
-
         }
     </style>
 </head>
@@ -143,6 +225,7 @@
 
     <div class="forest"></div>
     <div class="hedgehog"></div>
+    <div class="star"></div>
 
 </body>
 
