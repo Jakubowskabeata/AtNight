@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
 button {
     box-sizing: border-box;
     position: fixed;
@@ -14,9 +22,43 @@ button {
 
 }
 
-button:hover~div {
-    animation-play-state: paused;
+section {
+    position: absolute;
+    width: 100%;
+    height: 10vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.418);
+    box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+    overflow: hidden;
+    z-index: 3;
+}
 
+h1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform: translate(100%, 0);
+    text-align: center;
+    font-size: 4vw;
+    text-transform: uppercase;
+    line-height: 10vh;
+    font-family: 'Righteous',
+        cursive, sans-serif;
+
+    animation: text 15s linear infinite;
+    color: black;
+}
+
+button:hover~section>h1,
+button:hover~* {
+    animation-play-state: paused;
+}
+
+h1:nth-child(2) {
+    animation-delay: 7.5s;
 }
 
 .sky {
@@ -40,7 +82,7 @@ button:hover~div {
     height: 15vh;
     background-color: transparent;
     border-radius: 50%;
-    box-shadow: -20px 12px 0px 0px yellow;
+    box-shadow: -20px 12px 0px 0px #98A682;
     animation: moon 15s infinite linear;
     z-index: -1;
 }
@@ -96,6 +138,32 @@ button:hover~div {
     height: 7.5vw;
 }
 
+@keyframes text {
+    0% {
+        transform: translate(100%, 0)
+    }
+
+    3% {
+        transform: translate(100%, 0)
+    }
+
+    6% {
+        transform: translate(0, 0);
+    }
+
+    48% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(-100%, 0);
+    }
+
+    100% {
+        transform: translate(-100%, 0);
+    }
+
+}
 
 @keyframes star {
 
